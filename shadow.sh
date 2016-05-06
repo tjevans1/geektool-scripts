@@ -4,8 +4,7 @@
 # set this to the location of ImageMagick's convert command
 CONVERTER="/usr/local/bin/convert"
 # set this to the location where your Image geeklet will look
-OUTDIRECTORY="$HOME"
-TMPDIR=~/tmp
+OUTDIRECTORY="$HOME/tmp"
 # ===========================================================
 
 # don't mess with these
@@ -30,10 +29,7 @@ flipit(){
 	-delete 2,3 -channel rgba -alpha on -background none -append $outfile
 }
 
-
-
-
-mkdir -p $TMPDIR
+mkdir $OUTDIRECTORY
 
 # create the pieces of the date (year, month, day) in $TMPDIR
 date +'%Y'         | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim  label:@- $workdir/year.png
