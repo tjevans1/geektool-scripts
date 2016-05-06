@@ -15,9 +15,9 @@ infile="$workdir/combo.png"
 mkdir -p $TMPDIR
 
 # create the pieces of the date (year, month, day) in $TMPDIR
-date +'%Y' | $CONVERTER -background none -fill white -font Helvetica -pointsize 120 -trim -bordercolor none -border 0x8 label:@- $workdir/year.png
-date +'%A %I:%M%p' | $CONVERTER -background none -fill white -font Helvetica -pointsize 70 -trim -bordercolor none -border 0x8 label:@- $workdir/day.png
-date +'%B %d' | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 label:@- -trim $workdir/month.png
+date +'%Y'         | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim  label:@- $workdir/year.png
+date +'%A %I:%M%p' | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim label:@- $workdir/day.png
+date +'%B %d'      | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim label:@- $workdir/month.png
 
 
 # set the width and height variables
