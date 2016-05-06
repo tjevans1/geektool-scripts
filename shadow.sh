@@ -32,7 +32,7 @@ flipit(){
 mkdir $OUTDIRECTORY
 
 # create the pieces of the date (year, month, day) in $TMPDIR
-date +'%Y'         | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim  label:@- $workdir/year.png
+date +'%Y'         | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim label:@- $workdir/year.png
 date +'%A %I:%M%p' | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim label:@- $workdir/day.png
 date +'%B %d'      | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim label:@- $workdir/month.png
 
