@@ -29,17 +29,24 @@ flipit(){
 	-delete 2,3 -channel rgba -alpha on -background none -append $outfile
 }
 
+changefont(){
+	outfile=$1
+	$CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim label:@- $workdir/$outfile
+}
+
 mkdir $OUTDIRECTORY
 
 # create the pieces of the date (year, month, day) in $TMPDIR
-date +'%Y'         | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim label:@- $workdir/year.png
-date +'%A %I:%M%p' | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim label:@- $workdir/day.png
-date +'%B %d'      | $CONVERTER -background none -fill white -font Helvetica -pointsize 200 -trim label:@- $workdir/month.png
+date +'%Y'         | changefont year.png
+date +'%A %I:%M%p' | changefont day.png
+date +'%B %d'      | changefont month.png
 
 
 flipit "$workdir/year.png" "$OUTDIRECTORY/year.png"
 flipit "$workdir/day.png" "$OUTDIRECTORY/day.png"
 flipit "$workdir/month.png" "$OUTDIRECTORY/month.png"
+
+
 
 
 exit 0
